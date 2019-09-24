@@ -6,7 +6,7 @@
 #    By: mirivera <mirivera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/04 18:42:05 by mirivera          #+#    #+#              #
-#    Updated: 2019/09/13 14:53:54 by mirivera         ###   ########.fr        #
+#    Updated: 2019/09/24 12:06:12 by mirivera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -142,51 +142,23 @@ ALLF = $(addprefix ft_printf/srcs/,$(SRCS)) $(addprefix ft_printf/conv/,$(CONV))
 all: $(NAME)
 
 $(NAME):
-	@echo 'Compiling all your source files...'
+	@echo 'Building your Libft...'
 	@$(CC) $(CFLAGS) -c $(ALLF) -I $(HEADERS)
-	@echo 'Building your library...'
 	@ar rc $(NAME) $(OBJECTS)
-	@echo 'Optimizing your library...'
+	@echo 'Optimizing your Libft...'
 	@ranlib $(NAME)
-	@echo 'Library has been created!'
+	@echo 'Your Libft has been created.'
 
 clean:
-	@echo 'Removing object files and any executables...'
-	@rm -rf $(OBJECTS)
 	@rm -rf a.out*
 	@rm -rf debug*
 	@rm -rf *.dysm
+	@rm -rf $(OBJECTS)
 
 fclean:	clean
-	@echo 'Removing the library...'
+	@echo 'Removing your Libft...'
 	@rm -rf $(NAME)
 
 re:	fclean all
-	@#echo 'Removing everything and then re-compiling...'
-
-# run norminette on all your files in your ft_printf directory
-norme:
-	@echo 'Le Norme...'
-	@norminette -R CheckForbiddenSourceHeader $(ALLF)
-
-# make an executable compiled with the sanitize flag whose output is run after compilation
-sanitized:
-	@echo 'Removing other executables...'
-	@rm -rf debug*
-	@$(CC) $(CFLAGS) -g -I $(HEADERS) $(addprefix srcs/,$(SRCS)) $(addprefix conv/,$(CONV)) $(addprefix form/,$(FORM)) $(addprefix checksign/,$(CKSIGN)) ./misc_files/main.c ../libft/*.c -o debug_sanitize -fsanitize=address
-	@echo 'Compiling your test executable...'
-	@$(CC) $(CFLAGS) -g -I $(HEADERS) $(addprefix srcs/,$(SRCS)) $(addprefix conv/,$(CONV)) $(addprefix form/,$(FORM)) $(addprefix checksign/,$(CKSIGN)) ./misc_files/main.c ../libft/*.c -o debug_sanitize -fsanitize=address
-	@echo 'debug_sanitize executable created'
-	@echo 'Running sanitized executable...'
-	@./debug_sanitize
-
-# make an executable and run it through valgrind to check for leaks
-valgrinded:
-	@echo 'Removing other executables...'
-	@rm -rf debug*
-	@echo 'Compiling valgrind executable...'
-	@$(CC) $(CFLAGS) -g -I $(HEADERS) srcs/*.c conv/*.c form/*.c checksign/*.c ./misc_files/main.c ../libft/*.c -o debug_valgrind
-	@echo 'Running valgrind executable...'
-	@valgrind --leak-check=full ./debug_valgrind
 
 .PHONY: make all clean fclean re
