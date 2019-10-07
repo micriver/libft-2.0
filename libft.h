@@ -6,7 +6,7 @@
 /*   By: mirivera <mirivera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 11:17:33 by mirivera          #+#    #+#             */
-/*   Updated: 2019/09/14 12:52:33 by mirivera         ###   ########.fr       */
+/*   Updated: 2019/10/06 17:06:13 by mirivera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,5 +158,7 @@ char				*ft_llitoa(long long int n);
 char				*ft_ullitoa(unsigned long long int n);
 char				*ft_llitoa_base(long long int num, \
 							char *str, int base, int i);
+void				ft_chartobits(char c);
+void				ft_strtobinary(char *str);
 
 #endif

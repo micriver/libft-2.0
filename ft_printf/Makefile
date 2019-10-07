@@ -6,7 +6,7 @@
 #    By: mirivera <mirivera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/04 18:42:05 by mirivera          #+#    #+#              #
-#    Updated: 2019/09/13 14:37:19 by mirivera         ###   ########.fr        #
+#    Updated: 2019/10/06 17:07:42 by mirivera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ CONV = conversion.c \
 	xbx_conv.c \
 	p_conv.c \
 	f_conv.c \
+	b_conv.c \
 
 FORM = c_form.c \
 	s_form.c \
@@ -130,6 +131,8 @@ LIBFT_SRCS = ft_atoi.c \
 	ft_numlen.c \
 	ft_intputchar_fd.c \
 	ft_intputstr_fd.c \
+	ft_chartobits.c \
+	ft_strtobinary.c \
 
 OBJECTS = $(patsubst %.c,%.o,$(SRCS))
 OBJECTS += $(patsubst %.c,%.o,$(LIBFT_SRCS))

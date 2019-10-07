@@ -6,7 +6,7 @@
 #    By: mirivera <mirivera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/04 18:42:05 by mirivera          #+#    #+#              #
-#    Updated: 2019/09/24 12:06:12 by mirivera         ###   ########.fr        #
+#    Updated: 2019/10/06 17:04:32 by mirivera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,6 +97,8 @@ LIBFT_SRCS = ft_atoi.c \
 	ft_numlen.c \
 	ft_intputchar_fd.c \
 	ft_intputstr_fd.c \
+	ft_chartobits.c \
+	ft_strtobinary.c \
 
 SRCS = ft_printf.c \
 	parser.c \
@@ -115,6 +117,7 @@ CONV = conversion.c \
 	xbx_conv.c \
 	p_conv.c \
 	f_conv.c \
+	b_conv.c \
 
 FORM = c_form.c \
 	s_form.c \

@@ -6,7 +6,7 @@
 /*   By: mirivera <mirivera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/05 10:11:59 by mirivera          #+#    #+#             */
-/*   Updated: 2019/09/13 14:51:51 by mirivera         ###   ########.fr       */
+/*   Updated: 2019/10/06 15:43:39 by mirivera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include "../../libft.h"
 # include "../../get_next_line.h"
 
-# define CONV_SPECS "scdiuoxXpf%"
+# define CONV_SPECS "scdiuoxXpfb%"
 # define SPECIAL_SPECS "$%*"
 # define WIDTH arg.width
 # define PREC arg.precision
@@ -67,6 +67,7 @@ void				f_conv(va_list args);
 void				o_conv(va_list args);
 void				xbx_conv(va_list args);
 void				p_conv(va_list args);
+void				b_conv(va_list args);
 
 /*
 ** Conversion support functions
@@ -127,15 +128,6 @@ void				p_form(char *orig);
 void				o_form(char *orig);
 void				dui_form(char *orig);
 void				xbx_form(char *origstr);
-
-/*
-** //will most likely be getting rid of all these
-** /char	*insertplussign(char *str);
-** /char	*lead_zero_negsign(char *dest, char *src);
-** /char	*leading_zeros_spaces(char *dest, char *src, int arg_size);
-** /char	*rj_strncpy(char *src);
-** /char	*lj_strncpy(char *src);
-*/
 
 /*
 ** Checksign functions
