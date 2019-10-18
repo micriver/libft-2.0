@@ -6,7 +6,7 @@
 /*   By: mirivera <mirivera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 11:17:33 by mirivera          #+#    #+#             */
-/*   Updated: 2019/10/06 17:06:13 by mirivera         ###   ########.fr       */
+/*   Updated: 2019/10/15 18:30:26 by mirivera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,7 @@ char				*ft_prependchar(char c, char *str);
 ** integer to ascii, base number conversion functions
 */
 
+void				ft_putnbr(int n);
 char				*ft_itoa(int n);
 char				*ft_uitoa(unsigned long int n);
 char				*ft_itoa_base(int64_t num, int base, int i);
