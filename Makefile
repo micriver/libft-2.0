@@ -6,9 +6,17 @@
 #    By: mirivera <mirivera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/04 18:42:05 by mirivera          #+#    #+#              #
-#    Updated: 2019/10/06 17:04:32 by mirivera         ###   ########.fr        #
+#    Updated: 2019/10/18 21:34:40 by mirivera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+#COLOR OUTPUT OPIONS
+RED		=\033[0;31m
+GREEN	=\033[0;32m
+YELLOW	=\033[0;33m
+BLUE	=\033[0;34m
+MAG		=\033[0;35m
+NC		=\033[0m
 
 NAME = libft.a
 
@@ -145,12 +153,14 @@ ALLF = $(addprefix ft_printf/srcs/,$(SRCS)) $(addprefix ft_printf/conv/,$(CONV))
 all: $(NAME)
 
 $(NAME):
-	@echo 'Building your Libft...'
+	@#echo 'Building your Libft...'
+	@printf "[$(GREEN)$(NAME)$(NC)]\t[$(BLUE)...$(NC)]\r" #PRINT
 	@$(CC) $(CFLAGS) -c $(ALLF) -I $(HEADERS)
 	@ar rc $(NAME) $(OBJECTS)
-	@echo 'Optimizing your Libft...'
+	@#echo 'Optimizing your Libft...'
 	@ranlib $(NAME)
-	@echo 'Your Libft has been created.'
+	@#echo 'Your Libft has been created.'
+	@printf "[$(GREEN)$(NAME)$(NC)]\t[$(BLUE)DONE!$(NC)]\n" #PRINT
 
 clean:
 	@rm -rf a.out*
