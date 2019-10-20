@@ -6,7 +6,7 @@
 /*   By: mirivera <mirivera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 11:17:33 by mirivera          #+#    #+#             */
-/*   Updated: 2019/10/15 18:30:26 by mirivera         ###   ########.fr       */
+/*   Updated: 2019/10/19 21:26:36 by mirivera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void				ft_putstr(const char *str);
 int					ft_intputchar(char c);
 int					ft_intputstr(char *str);
 char				*ft_strcpy(char *dest, const char *src);
+char				*ft_freecpy(char *str, char *tmp);
 char				*ft_strncpy(char *dest, const char *src, size_t n);
 char				*ft_strcat(char *s1, const char *s2);
 char				*ft_strncat(char *s1, \

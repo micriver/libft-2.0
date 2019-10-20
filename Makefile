@@ -6,7 +6,7 @@
 #    By: mirivera <mirivera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/04 18:42:05 by mirivera          #+#    #+#              #
-#    Updated: 2019/10/18 21:34:40 by mirivera         ###   ########.fr        #
+#    Updated: 2019/10/19 21:27:11 by mirivera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,6 +62,7 @@ LIBFT_SRCS = ft_atoi.c \
 	ft_strclr.c \
 	ft_strcmp.c \
 	ft_strcpy.c \
+	ft_freecpy.c \
 	ft_strdel.c \
 	ft_strdup.c \
 	ft_strequ.c \
