@@ -6,7 +6,7 @@
 /*   By: mirivera <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 15:35:11 by mirivera          #+#    #+#             */
-/*   Updated: 2019/09/11 16:03:16 by mirivera         ###   ########.fr       */
+/*   Updated: 2019/10/21 14:22:59 by mirivera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void		xbx_nowid(char *temp, char *origstr, char *temp2)
 {
 	if (!SHARP_FLAG && PREC)
 	{
-		free(temp);
-		temp = origstr;
 		if (!WIDTH)
 			free(temp2);
 	}

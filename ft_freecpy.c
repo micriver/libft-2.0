@@ -6,7 +6,7 @@
 /*   By: mirivera <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 21:25:03 by mirivera          #+#    #+#             */
-/*   Updated: 2019/10/19 21:25:52 by mirivera         ###   ########.fr       */
+/*   Updated: 2019/10/20 13:57:38 by mirivera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char		*ft_freecpy(char *str, char *tmp)
 {
-	free(tmp);
+	//free(tmp);
 	ft_bzero(tmp, ft_strlen(tmp));
 	tmp = ft_strjoin(tmp, str);
 	free(str);
