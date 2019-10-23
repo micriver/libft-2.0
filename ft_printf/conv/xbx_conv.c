@@ -6,20 +6,30 @@
 /*   By: mirivera <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 22:43:24 by mirivera          #+#    #+#             */
-/*   Updated: 2019/09/11 13:09:59 by mirivera         ###   ########.fr       */
+/*   Updated: 2019/10/23 00:11:42 by mirivera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/ft_printf.h"
 
+void		x_cast(va_list args, unsigned int *n)
+{
+	if (CHECK_BIT(arg.flgmods, LONGINT))
+		(*n) = va_arg(args, long int);
+	else if (CHECK_BIT(arg.flgmods, LNGLNG))
+		(*n) = va_arg(args, long long int);
+	else
+		(*n) = va_arg(args, unsigned int);
+}
+
 void	xbx_conv(va_list args)
 {
-	char	*res;
-	int64_t	n;
-	char	*temp;
+	char				*res;
+	char				*temp;
+	unsigned int 			n;
 
-	n = va_arg(args, int64_t);
 	res = NULL;
+	x_cast(args, &n);
 	if (n == 0)
 	{
 		temp = "0";
@@ -29,13 +39,13 @@ void	xbx_conv(va_list args)
 	}
 	else if (arg.conv == 'X')
 	{
-		temp = ft_itoa_base_up(n, res, 16, 0);
+		temp = ft_uitoa_base_up(n, res, 16, 0);
 		xbx_form(temp);
 		free(res);
 	}
 	else
 	{
-		temp = ft_itoa_base(n, 16, 0);
+		temp = ft_uitoa_base(n, res, 16, 0);
 		xbx_form(temp);
 	}
 }

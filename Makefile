@@ -6,7 +6,7 @@
 #    By: mirivera <mirivera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/04 18:42:05 by mirivera          #+#    #+#              #
-#    Updated: 2019/10/19 21:27:11 by mirivera         ###   ########.fr        #
+#    Updated: 2019/10/23 00:01:12 by mirivera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,6 +96,7 @@ LIBFT_SRCS = ft_atoi.c \
 	ft_ullitoa.c \
 	ft_uitoa.c \
 	ft_uitoa_base.c \
+	ft_uitoa_base_up.c \
 	ft_insertchar.c \
 	ft_intputchar.c \
 	ft_intputstr.c \
