@@ -1,0 +1,105 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mirivera <mirivera@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/10/18 14:04:12 by mirivera          #+#    #+#              #
+#    Updated: 2020/02/03 15:21:17 by mirivera         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+#COLOR OUTPUT OPIONS
+black=`tput setaf 0`
+mint=`tput setaf 10`
+red=`tput setaf 1`
+green=`tput setaf 2`
+yellow=`tput setaf 3`
+blue=`tput setaf 4`
+bold=`tput bold`
+# tput sgr0 turns off all attributes
+NC=`tput sgr0`
+
+#	PROJECT NAME
+NAME = 
+
+INCLUDES = ./includes/
+
+CC = gcc
+
+CFLAGS = -Wall -Werror -Wextra
+
+#    LIBFT
+LIB_DIR = ./libft/
+LIBFT = $(LIB_DIR)libft.a
+
+#	PROJECT NAME
+SRCS = $(NAME).c \
+
+OBJECTS = $(patsubst %.c,%.o,$(SRCS))
+
+#	ADD YOUR ROOT DIRECTORIES HERE
+ALLF = $(addprefix srcs/,$(SRCS)) $(INCLUDES)
+
+#	FT_PRINTF .C FILES
+PRINTF = $(addprefix ./libft/ft_printf/srcs/,*.c) $(addprefix ./libft/ft_printf/conv/,*.c) $(addprefix ./libft/ft_printf/checksign/,*.c) $(addprefix ./libft/ft_printf/form/,*.c)
+
+#	42 STANDARD RULES
+all: $(NAME)
+
+$(NAME):
+	@make -C $(LIB_DIR)
+	@#echo 'Compiling your executable...'
+	@printf "[$(GREEN)$(NAME)$(NC)]\t[$(BLUE)...$(NC)]\r" #PRINT
+	@$(CC) $(CFLAGS) $(addprefix srcs/,$(SRCS)) $(LIBFT) -I $(INCLUDES) -o $(NAME) -g
+	@printf "[$(GREEN)$(NAME)$(NC)]\t[$(BLUE)DONE!$(NC)]\n" #PRINT
+	@#echo '$(NAME) has been created.'
+
+clean:
+	@rm -rf $(OBJECTS)
+	@make -C $(LIB_DIR) clean
+	@rm -rf a.out*
+	@rm -rf $(NAME)*
+
+fclean: clean
+	@make -C $(LIB_DIR) fclean
+
+re:	fclean all
+
+.PHONY: make all clean fclean re
+
+#this shell command has to be on one line or separated by (\) if different lines
+#(-e) is looking for a file (-d) looks for directories
+lib:
+	@if [ -e "./libft/libft.a" ]; then echo "Your Libft exists."; else make -C libft; \
+	fi
+
+#	RUN NORM
+norme:
+	@echo 'Running norminette on all your project files...'
+	@norminette -R CheckForbiddenSourceHeader $(ALLF)
+
+#	EXECUTABLE WITH SANITIZE FLAG
+sanitized: lib
+	@echo 'Removing other executables...'
+	@rm -rf $(NAME)*
+	# @$(CC) $(CFLAGS) -g $(addprefix srcs/,$(SRCS)) $(LIBFT) -I $(INCLUDES) -o $(NAME)_sanitize -fsanitize=address
+	@$(CC) $(CFLAGS) -g -I $(INCLUDES) srcs/*.c $(PRINTF) ./libft/*.c -o $(NAME)_sanitize -fsanitize=address
+	@echo '$(NAME)_sanitize executable created'
+	@#echo 'Running sanitized executable...'
+	@#echo ''
+	@#echo './$(NAME)_sanitize'
+	@#./$(NAME)_sanitize
+
+#	VALGRIND EXECUTABLE
+valgrinded:
+	@echo 'Removing other executables...'
+	@rm -rf $(NAME)*
+	@echo 'Compiling valgrind executable...'
+	# -I tells the compiler where to look for header files to include
+	@$(CC) $(CFLAGS) -g -I $(INCLUDES) srcs/*.c $(PRINTF) ./libft/*.c -o $(NAME)_valgrind
+	# you can change the next couple lines 
+	@echo 'Run your executable with'
+	@echo 'valgrind --leak-check=full ./$(NAME)_valgrind'
+	@echo 'Followed by your inputs.'

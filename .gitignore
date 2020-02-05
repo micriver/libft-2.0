@@ -1,6 +1,8 @@
 #Executables
 *.out
-fillit
+checker*
+push_swap*
+move*
 
 #Libraries
 /libft/libft.a
@@ -8,6 +10,7 @@ libftprintf.a
 *libft.a
 
 #Folders
+/references
 /coldstorage
 /samples/
 /rebuild
@@ -26,6 +29,8 @@ libft/.gitignore
 /objects
 
 #Misc files
+__pycache__/
+venv/
 debug_*
 *.pdf
 tests.c
