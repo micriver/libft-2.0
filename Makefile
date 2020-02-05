@@ -6,9 +6,11 @@
 #    By: mirivera <mirivera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/04 18:42:05 by mirivera          #+#    #+#              #
-#    Updated: 2020/02/03 15:34:48 by mirivera         ###   ########.fr        #
+#    Updated: 2020/02/05 12:56:44 by mirivera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+# Submodule update test
 
 #COLOR OUTPUT OPIONS
 RED		=\033[0;31m
