@@ -20,6 +20,10 @@ Per the project, all of our functions must begin with `ft_` for, _Forty-Two_.
 All functions were written according to 42's coding standard,
 [the Norm](https://github.com/micriver/docs/norme.en%20.pdf).
 
+### To-do's:
+
+- [ ] add ft_printf project as a submodule
+
 ## Installation
 
 Download the repository by copying and pasting the commands below.
